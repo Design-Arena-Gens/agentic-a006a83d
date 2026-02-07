@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "esthetimanage-backend"
+version = "0.1.0"
+description = "FastAPI backend for EsthetiManage SaaS."
+authors = [{name = "EsthetiManage Team"}]
+dependencies = [
+    "fastapi>=0.110.0",
+    "uvicorn[standard]>=0.27.0",
+    "SQLAlchemy>=2.0.25",
+    "psycopg2-binary>=2.9.9",
+    "alembic>=1.13.1",
+    "python-jose[cryptography]>=3.3.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.1",
+    "tenacity>=8.2.3",
+    "httpx>=0.26.0",
+    "redis>=5.0.1",
+    "python-dotenv>=1.0.1",
+    "stripe>=8.0.0",
+    "twilio>=9.0.0",
+    "google-api-python-client>=2.118.0",
+    "google-auth>=2.27.0",
+    "google-auth-httplib2>=0.2.0",
+    "python-multipart>=0.0.9",
+    "email-validator>=2.1.0",
+    "celery>=5.3.6",
+    "flower>=2.0.1",
+    "loguru>=0.7.2",
+    "sentry-sdk[fastapi]>=1.39.1",
+    "bcrypt>=4.1.2",
+    "apscheduler>=3.10.4"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.2",
+    "pytest-asyncio>=0.23.5",
+    "httpx>=0.26.0",
+    "anyio>=4.2.0",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.2.0",
+    "mypy>=1.8.0",
+    "types-python-jose>=3.3.4.1"
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--cov=app --cov-report=xml --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+ignore_missing_imports = true
